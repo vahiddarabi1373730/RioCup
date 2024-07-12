@@ -1,0 +1,14 @@
+<ng-container [formGroup]="form">
+  <fieldset [formControlName]="control.controlKey">
+    <ng-container *ngIf="control.config.controls">
+      <ng-container *ngFor="let control of control.config.controls | keyvalue">
+        <ng-container
+          [ngComponentOutlet]="dynamicControlResolverService.resolve(control.value.controlType)"
+          [ngComponentOutletInjector]="control.value"
+        >
+        </ng-container>
+      </ng-container>
+    </ng-container>
+
+  </fieldset>
+</ng-container>

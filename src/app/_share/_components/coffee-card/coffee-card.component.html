@@ -1,0 +1,17 @@
+<section class="c-coffee border border-D3AC67 bg-white rounded-2xl p-6	flex flex-col gap-y-">
+  <div class="flex flex-col gap-y-1">
+    <app-svg-icon [name]="item.nameFlag"></app-svg-icon>
+    <h3 class="text-333 font-bold font text-lg	text-center">{{ item.title }}</h3>
+  </div>
+  <div class="flex flex-col gap-y-1">
+    <app-slider [slider]="item.bitterness"></app-slider>
+    <app-slider [slider]="item.caffeine"></app-slider>
+    <app-slider [slider]="item.acidity"></app-slider>
+  </div>
+  <div class="flex justify-center gap-x-0.5 my-4	">
+    <app-place-holder value="شیرین"></app-place-holder>
+    <app-place-holder value="یاد آجیلی شکلاتی"></app-place-holder>
+  </div>
+  <span class="text-ACACAC text-sm font-semibold text-center">قیمت / کیلوگرم<span
+    class="text-5D5D5D text-2xl	font-black mx-0.5">{{ item.price }}</span>تومان</span>
+</section>

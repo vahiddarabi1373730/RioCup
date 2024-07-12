@@ -1,0 +1,9 @@
+::ng-deep {
+  .p-slider .p-slider-range {
+    @apply bg-custom-background
+  }
+
+  .p-element .p-slider-handle {
+    @apply hidden
+  }
+}

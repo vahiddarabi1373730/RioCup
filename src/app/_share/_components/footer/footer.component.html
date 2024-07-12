@@ -1,0 +1,37 @@
+<!--<div class="flex justify-between  border border-solid border-E6E6E6 bg-gradient-to-r p-6">-->
+<!--  <div class="flex justify-end items-center gap-x-6">-->
+<!--    <span class="text-333 text-lg font-bold">مرحله {{ footer.level }}</span>-->
+<!--    <div class="flex gap-x-1 text-sm text-ACACAC font-semibold bg-white px-4 py-2.5 rounded-lg">-->
+<!--      <app-svg-icon name="bag-happy"></app-svg-icon>-->
+<!--      <span>{{ footer.countProducts }}</span> <span>محصول</span>-->
+
+<!--    </div>-->
+<!--  </div>-->
+<!--  <div class="flex gap-x-12">-->
+<!--    <div>-->
+<!--      <span class="text-5D5D5D text-2xl font-bold">{{ footer.price }}</span>-->
+<!--      <span class="text-ACACAC text-sm font-semibold">تومان</span>-->
+<!--    </div>-->
+<!--    <div class="flex gap-x-6">-->
+<!--      <app-button *ngFor="let button of buttons" [button]="button"></app-button>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+<div
+  class="flex flex-col gap-y-4 p-6  bg-[linear-gradient(8deg,_#fff_37.85%,_#F8F2E7_130.68%)] border border-solid border-E6E6E6">
+  <div class="flex justify-between items-center">
+    <span class="text-333 text-lg font-bold">مرحله {{ footer.level }}</span>
+    <div class="md:flex gap-x-1 text-sm text-ACACAC font-semibold bg-white px-4 py-2.5 rounded-lg sm:hidden">
+      <app-svg-icon name="bag-happy"></app-svg-icon>
+      <span>{{ footer.countProducts }}</span> <span>محصول</span>
+    </div>
+    <div>
+      <span class="text-5D5D5D text-2xl font-bold">{{ footer.price }}</span>
+      <span class="text-ACACAC text-sm font-semibold">تومان</span>
+    </div>
+  </div>
+  <div class="flex justify-between items-cente">
+    <app-button *ngFor="let button of buttons" [button]="button"></app-button>
+  </div>
+</div>
+

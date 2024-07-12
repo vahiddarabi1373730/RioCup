@@ -1,1 +1,19 @@
-/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  text-align: right;
+  direction: rtl;
+}
+
+@font-face {
+  font-family: 'BYekan';
+  src: url("/assets/_fonts/YekanBakh-Medium.eot") format("truetype");
+}
+
+* {
+  font-family: BYekan;
+}
+
+@import "primeicons/primeicons.css";

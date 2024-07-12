@@ -1,0 +1,20 @@
+<ng-container *ngIf="coffees | async as coffee">
+  <div class="c-description">
+    <div class="p-6 bg-custom-background rounded-2xl	 text-white ">
+      <h3 class="text-lg text-white font-bold	">انتخاب قهوه</h3>
+      <p class="text-sm text-F8EEDC font-semibold	">
+        حداقل یک و حداکثر سه قهوه را برای شروع ترکیب دلخواه انتخاب کنید. برای بهترین ترکیب، بهتر است یک قهوه از نوع
+        عربیکا
+        و
+        نوع دوم ربوستای اوگاندا را انتخاب کنید. ربوستا تلخی، غلظت، کرما و کافئین قهوه را افزایش می دهد و برای طعم و عطر
+        بهتر
+        از ترکیب یک عربیکا استفاده کنید.
+      </p>
+    </div>
+  </div>
+  <div class="c-item flex-row flex justify-center flex-wrap gap-x-4 flex-col gap-y-4">
+    <ng-container *ngFor="let item of coffee">
+      <app-coffee-card [item]="item"></app-coffee-card>
+    </ng-container>
+  </div>
+</ng-container>

@@ -1,0 +1,10 @@
+<form [formGroup]="form">
+  <ng-container *ngFor="let control of config.controls | keyvalue">
+    <ng-container
+      [ngComponentOutlet]="dynamicControlResolverService.resolve(control.value.controlType)"
+      [ngComponentOutletInjector]="control.key | controlInjector:control.value"
+    >
+
+    </ng-container>
+  </ng-container>
+</form>
