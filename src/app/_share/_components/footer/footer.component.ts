@@ -29,8 +29,8 @@ export class FooterComponent {
       raised: true,
       text: true,
       class: 'F2F2F2',
-      icon: "pi-arrow-left",
-      iconPos: "right",
+      icon: "pi-arrow-right",
+      iconPos: "left",
       operation: () => {
 
       }

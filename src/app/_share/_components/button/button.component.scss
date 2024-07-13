@@ -1,19 +1,19 @@
 ::ng-deep {
   .F2F2F2 button {
-    @apply bg-F2F2F2  py-3.5 px-4
+    @apply tw-bg-F2F2F2  tw-py-3.5 tw-px-4 tw-gap-x-2
   }
 
   .F2F2F2 button .p-button-label {
-    @apply text-lg font-semibold text-ACACAC
+    @apply tw-text-lg tw-font-semibold tw-text-ACACAC
   }
 
   .DDBE88 button {
-    @apply bg-DDBE88 border-none py-3.5 px-4
+    @apply tw-bg-DDBE88 tw-border-none tw-py-3.5 tw-px-4 tw-gap-x-2
 
   }
 
   .DDBE88 button .p-button-label {
-    @apply text-lg font-semibold text-white
+    @apply tw-text-lg tw-font-semibold tw-text-white
   }
 
 }

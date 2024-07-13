@@ -18,20 +18,20 @@
 <!--  </div>-->
 <!--</div>-->
 <div
-  class="flex flex-col gap-y-4 p-6  bg-[linear-gradient(8deg,_#fff_37.85%,_#F8F2E7_130.68%)] border border-solid border-E6E6E6">
-  <div class="flex justify-between items-center">
-    <span class="text-333 text-lg font-bold">مرحله {{ footer.level }}</span>
-    <div class="md:flex gap-x-1 text-sm text-ACACAC font-semibold bg-white px-4 py-2.5 rounded-lg sm:hidden">
+  class="tw-flex tw-flex-col tw-gap-y-4 tw-p-6  tw-bg-[linear-gradient(8deg,_#fff_37.85%,_#F8F2E7_130.68%)] tw-border tw-border-solid tw-border-E6E6E6">
+  <div class="tw-flex tw-justify-between tw-items-center">
+    <span class="tw-text-333 tw-text-lg tw-font-bold">مرحله {{ footer.level }}</span>
+    <div
+      class="md:tw-flex tw-gap-x-1 tw-text-sm tw-text-ACACAC tw-font-semibold tw-bg-white tw-px-4 tw-py-2.5 tw-rounded-lg sm:tw-hidden">
       <app-svg-icon name="bag-happy"></app-svg-icon>
       <span>{{ footer.countProducts }}</span> <span>محصول</span>
     </div>
     <div>
-      <span class="text-5D5D5D text-2xl font-bold">{{ footer.price }}</span>
-      <span class="text-ACACAC text-sm font-semibold">تومان</span>
+      <span class="tw-text-5D5D5D tw-text-2xl tw-font-bold">{{ footer.price }}</span>
+      <span class="tw-text-ACACAC tw-text-sm tw-font-semibold">تومان</span>
     </div>
   </div>
-  <div class="flex justify-between items-cente">
+  <div class="tw-flex tw-justify-between tw-items-center">
     <app-button *ngFor="let button of buttons" [button]="button"></app-button>
   </div>
 </div>
-

@@ -3,6 +3,7 @@ import {SvgIconComponent} from "../svg-icon/svg-icon.component";
 import {CoffeeCardInterface} from "../../_models/share.interface";
 import {SliderComponent} from "../slider/slider.component";
 import {PlaceHolderComponent} from "./place-holder/place-holder.component";
+import {Button} from "primeng/button";
 
 @Component({
   selector: 'app-coffee-card',
@@ -10,7 +11,8 @@ import {PlaceHolderComponent} from "./place-holder/place-holder.component";
   imports: [
     SvgIconComponent,
     SliderComponent,
-    PlaceHolderComponent
+    PlaceHolderComponent,
+    Button
   ],
   templateUrl: './coffee-card.component.html',
   styleUrl: './coffee-card.component.scss'

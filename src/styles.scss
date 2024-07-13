@@ -1,10 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import "primeicons/primeicons.css";
 
 * {
   text-align: right;
   direction: rtl;
+  margin: 0;
+  padding: 0;
 }
 
 @font-face {
@@ -15,5 +18,3 @@
 * {
   font-family: BYekan;
 }
-
-@import "primeicons/primeicons.css";

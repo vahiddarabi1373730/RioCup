@@ -1,7 +1,9 @@
 <p-button [ngClass]="button.class"
           [text]="button.text"
           [raised]="button.raised"
-          [icon]="button.icon"
+          [icon]="'pi '+ button.icon"
           [iconPos]="button.iconPos"
           [label]="button.innerText"
           [severity]="button.severity"/>
+<p-button label="Click" icon="fa fa-check" iconPos="left"></p-button>
+

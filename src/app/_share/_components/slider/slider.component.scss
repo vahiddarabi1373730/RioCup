@@ -1,9 +1,9 @@
 ::ng-deep {
   .p-slider .p-slider-range {
-    @apply bg-custom-background
+    @apply tw-bg-custom-background
   }
 
   .p-element .p-slider-handle {
-    @apply hidden
+    @apply tw-hidden
   }
 }
