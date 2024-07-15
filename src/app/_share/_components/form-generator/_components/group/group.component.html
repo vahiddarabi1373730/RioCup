@@ -4,7 +4,7 @@
       <ng-container *ngFor="let control of control.config.controls | keyvalue">
         <ng-container
           [ngComponentOutlet]="dynamicControlResolverService.resolve(control.value.controlType)"
-          [ngComponentOutletInjector]="control.value"
+          [ngComponentOutletInjector]="control.key | controlInjector:control.value"
         >
         </ng-container>
       </ng-container>

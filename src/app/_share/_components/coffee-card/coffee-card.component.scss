@@ -1,0 +1,11 @@
+:host {
+  @apply md:tw-flex sm:tw-block sm:tw-w-full md:tw-w-auto
+}
+
+.c-coffee.selected {
+  @apply tw-bg-bg-card
+}
+
+.c-coffee {
+  @apply tw-bg-white
+}

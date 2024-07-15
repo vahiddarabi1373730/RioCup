@@ -1,5 +1,6 @@
 <section
-  class="c-coffee tw-border tw-border-solid tw-border-D3AC67 tw-bg-white tw-rounded-2xl tw-p-6	tw-flex tw-flex-col tw-gap-y-1">
+  [ngClass]="item.class"
+  class="c-coffee tw-cursor-pointer   tw-border tw-border-solid tw-border-D3AC67 tw-bg-white tw-rounded-2xl tw-p-6	tw-flex tw-flex-col tw-gap-y-1">
   <div class="tw-flex tw-flex-col tw-gap-y-1">
     <app-svg-icon [name]="item.nameFlag"></app-svg-icon>
     <h3 class="tw-text-333 tw-font-bold tw-font tw-text-lg	tw-text-center">{{ item.title }}</h3>
@@ -9,7 +10,7 @@
     <app-slider [slider]="item.caffeine"></app-slider>
     <app-slider [slider]="item.acidity"></app-slider>
   </div>
-  <div class="tw-flex tw-justify-center tw-gap-x-0.5 tw-my-4	">
+  <div class="tw-flex tw-justify-center tw-gap-x-2 tw-my-4	">
     <app-place-holder value="شیرین"></app-place-holder>
     <app-place-holder value="یاد آجیلی شکلاتی"></app-place-holder>
   </div>

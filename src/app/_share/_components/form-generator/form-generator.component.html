@@ -1,5 +1,6 @@
-<form [formGroup]="form">
+<form [formGroup]="form" class="tw-flex tw-flex-col tw-gap-y-8">
   <ng-container *ngFor="let control of config.controls | keyvalue">
+    <label class="tw-text-lg tw-font-bold tw-text-333">{{ control.value.label }}</label>
     <ng-container
       [ngComponentOutlet]="dynamicControlResolverService.resolve(control.value.controlType)"
       [ngComponentOutletInjector]="control.key | controlInjector:control.value"

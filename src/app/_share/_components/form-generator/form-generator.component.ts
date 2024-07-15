@@ -1,4 +1,4 @@
-import {Component, inject, Input} from '@angular/core';
+import {Component, EventEmitter, inject, Input, Output} from '@angular/core';
 import {DynamicControlInterface, DynamicFormConfigInterface} from "../../_models/share.interface";
 import {FormControl, FormGroup, ReactiveFormsModule} from "@angular/forms";
 import {CommonModule} from "@angular/common";
@@ -18,12 +18,14 @@ import {resolveValidators} from "./_share/share-functions";
   styleUrl: './form-generator.component.scss'
 })
 export class FormGeneratorComponent {
+  @Output() formReady = new EventEmitter<FormGroup>()
   protected dynamicControlResolverService = inject(DynamicControlResolverService)
   protected form!: FormGroup;
   private _config!: DynamicFormConfigInterface
   @Input() set config(config: DynamicFormConfigInterface) {
     this._config = config
     this.buildForm(config.controls)
+    this.formReady.emit(this.form)
 
   }
 

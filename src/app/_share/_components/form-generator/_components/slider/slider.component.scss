@@ -1,0 +1,34 @@
+::ng-deep {
+  p-slider.p-element {
+    @apply tw-h-8 tw-block tw-rounded
+  }
+
+  .p-element .p-slider {
+    @apply tw-h-full
+  }
+
+  .p-slider .p-slider-range {
+    @apply tw-bg-bg-slider
+  }
+
+  .p-element .p-slider-handle {
+    @apply tw-border-custom-background tw-w-14 tw-h-14 tw-top-[-50%] tw-bg-custom-background
+  }
+
+  .p-element .p-slider-handle {
+    //@apply tw-left-[48%] #{!important}
+  }
+
+  .p-element .p-slider-handle:hover {
+    @apply tw-bg-custom-background
+  }
+}
+
+::ng-deep {
+  .p-slider-handle::before {
+    @apply tw-absolute tw-top-1/2 tw-left-1/2 tw-text-lg tw-font-bold tw-text-222 tw-content-[attr(aria-valuenow)'%']  tw--translate-x-1/2 tw--translate-y-1/2
+
+  }
+
+
+}

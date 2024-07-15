@@ -18,10 +18,10 @@ export interface DynamicFormConfigInterface {
 
 export interface DynamicControlInterface<T = string> {
   controlType: ControlType,
-  type: string
+  type?: string
   label: string,
   value: T | null,
-  options: ValueLabelInterface[],
+  options?: ValueLabelInterface[],
   controls?: DynamicFormConfigInterface['controls']
   validators?: {
     [key in ValidatorKeys]?: unknown
@@ -36,13 +36,14 @@ export type DynamicControlsMap = {
 }
 
 
-export interface CoffeeCardInterface {
+export interface CoffeeInterface {
   nameFlag: string,
   title: string,
   bitterness: ValueLabelInterface,
   acidity: ValueLabelInterface,
   caffeine: ValueLabelInterface,
-  price: number
+  price: number,
+  class?: string
 
 }
 
@@ -63,10 +64,14 @@ export interface ButtonInterface {
   raised?: boolean,
   icon?: string,
   iconPos?: any,
-  text?: boolean,
-  class: ClassType
+  hasText?: boolean,
+  class: string
 
 }
 
-export type ClassType = 'F2F2F2' | 'DDBE88'
 export type SeverityType = 'secondary' | 'primary' | 'success' | 'danger'
+
+export interface selectedCoffeeInterface {
+  index: number
+  coffee: CoffeeInterface
+}

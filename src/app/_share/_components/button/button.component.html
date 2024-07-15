@@ -1,9 +1,6 @@
-<p-button [ngClass]="button.class"
-          [text]="button.text"
-          [raised]="button.raised"
-          [icon]="'pi '+ button.icon"
-          [iconPos]="button.iconPos"
-          [label]="button.innerText"
-          [severity]="button.severity"/>
-<p-button label="Click" icon="fa fa-check" iconPos="left"></p-button>
-
+<button (click)="button.operation()" pButton [ngClass]="button.class" [raised]="button.raised"
+        [severity]="button.severity">
+  <img *ngIf="button.iconPos==='right'" alt="dropdown icon" [src]="'/assets/_icons/'+ button.iconName+'.svg'">
+  <span *ngIf="button.hasText">{{ button.innerText }}</span>
+  <img *ngIf="button.iconPos==='left'" alt="dropdown icon" [src]="'/assets/_icons/'+ button.iconName+'.svg'">
+</button>

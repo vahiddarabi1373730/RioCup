@@ -1,37 +1,22 @@
-<!--<div class="flex justify-between  border border-solid border-E6E6E6 bg-gradient-to-r p-6">-->
-<!--  <div class="flex justify-end items-center gap-x-6">-->
-<!--    <span class="text-333 text-lg font-bold">مرحله {{ footer.level }}</span>-->
-<!--    <div class="flex gap-x-1 text-sm text-ACACAC font-semibold bg-white px-4 py-2.5 rounded-lg">-->
-<!--      <app-svg-icon name="bag-happy"></app-svg-icon>-->
-<!--      <span>{{ footer.countProducts }}</span> <span>محصول</span>-->
-
-<!--    </div>-->
-<!--  </div>-->
-<!--  <div class="flex gap-x-12">-->
-<!--    <div>-->
-<!--      <span class="text-5D5D5D text-2xl font-bold">{{ footer.price }}</span>-->
-<!--      <span class="text-ACACAC text-sm font-semibold">تومان</span>-->
-<!--    </div>-->
-<!--    <div class="flex gap-x-6">-->
-<!--      <app-button *ngFor="let button of buttons" [button]="button"></app-button>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</div>-->
 <div
-  class="tw-flex tw-flex-col tw-gap-y-4 tw-p-6  tw-bg-[linear-gradient(8deg,_#fff_37.85%,_#F8F2E7_130.68%)] tw-border tw-border-solid tw-border-E6E6E6">
-  <div class="tw-flex tw-justify-between tw-items-center">
+  class="tw-flex sm:tw-flex-col md:tw-flex-row md:tw-justify-between tw-gap-y-4 tw-p-6  tw-bg-[linear-gradient(8deg,_#fff_37.85%,_#F8F2E7_130.68%)] tw-border tw-border-solid tw-border-E6E6E6">
+  <div class="tw-flex md:tw-justify-start tw-gap-x-6 sm:tw-justify-between tw-items-center">
     <span class="tw-text-333 tw-text-lg tw-font-bold">مرحله {{ footer.level }}</span>
     <div
       class="md:tw-flex tw-gap-x-1 tw-text-sm tw-text-ACACAC tw-font-semibold tw-bg-white tw-px-4 tw-py-2.5 tw-rounded-lg sm:tw-hidden">
       <app-svg-icon name="bag-happy"></app-svg-icon>
       <span>{{ footer.countProducts }}</span> <span>محصول</span>
     </div>
-    <div>
+    <div class="sm:tw-block md:tw-hidden">
       <span class="tw-text-5D5D5D tw-text-2xl tw-font-bold">{{ footer.price }}</span>
       <span class="tw-text-ACACAC tw-text-sm tw-font-semibold">تومان</span>
     </div>
   </div>
-  <div class="tw-flex tw-justify-between tw-items-center">
+  <div class="tw-flex tw-justify-between tw-items-center md:tw-gap-x-4">
+    <div class="sm:tw-hidden md:tw-block">
+      <span class="tw-text-5D5D5D tw-text-2xl tw-font-bold">{{ footer.price }}</span>
+      <span class="tw-text-ACACAC tw-text-sm tw-font-semibold">تومان</span>
+    </div>
     <app-button *ngFor="let button of buttons" [button]="button"></app-button>
   </div>
 </div>
