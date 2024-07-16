@@ -26,7 +26,12 @@ export class FormGeneratorComponent {
     this._config = config
     this.buildForm(config.controls)
     this.formReady.emit(this.form)
+    console.log(this.form)
 
+  }
+
+  get config() {
+    return this._config
   }
 
   private buildForm(controls: DynamicFormConfigInterface['controls']): void {
@@ -50,10 +55,6 @@ export class FormGeneratorComponent {
       this.buildControls(controlKey, controls[controlKey], nestedForm)
     })
     parentFormGroup.addControl(controlKey, nestedForm)
-  }
-
-  get config() {
-    return this._config
   }
 
 }

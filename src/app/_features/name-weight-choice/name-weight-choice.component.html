@@ -1,0 +1,9 @@
+<ng-container *ngIf="packs$ | async as packs">
+  <app-description title="انتخاب وزن بسته‌بندی و نامگذاری" [description]="description"></app-description>
+  <section class="tw-flex sm:tw-flex-col md:tw-flex-row md:tw-gap-x-4 sm:tw-gap-y-4 md:tw-flex-wrap">
+    <app-pack [pack]="pack" *ngFor="let pack of packs"></app-pack>
+  </section>
+  <section class="tw-py-6 tw-px-4 tw-bg-F7F7F7 tw-rounded-2xl">
+    <app-form-generator (formReady)="formReady($event)" [config]="config"></app-form-generator>
+  </section>
+</ng-container>

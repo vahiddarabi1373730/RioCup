@@ -1,11 +1,12 @@
 <form [formGroup]="form" class="tw-flex tw-flex-col tw-gap-y-8">
   <ng-container *ngFor="let control of config.controls | keyvalue">
-    <label class="tw-text-lg tw-font-bold tw-text-333">{{ control.value.label }}</label>
-    <ng-container
-      [ngComponentOutlet]="dynamicControlResolverService.resolve(control.value.controlType)"
-      [ngComponentOutletInjector]="control.key | controlInjector:control.value"
-    >
-
-    </ng-container>
+    <section class="tw-flex tw-flex-col tw-gap-y-4 ">
+      <label class="tw-text-lg tw-font-bold tw-text-333">{{ control.value.label }}</label>
+      <ng-container
+        [ngComponentOutlet]="dynamicControlResolverService.resolve(control.value.controlType)"
+        [ngComponentOutletInjector]="control.key | controlInjector:control.value"
+      >
+      </ng-container>
+    </section>
   </ng-container>
 </form>

@@ -1,10 +1,11 @@
-import {Component, inject, Input} from '@angular/core';
+import {Component, inject, Input, OnInit} from '@angular/core';
 import {ButtonInterface, FooterInterface} from "../../_models/share.interface";
 import {SvgIconComponent} from "../svg-icon/svg-icon.component";
 import {ButtonComponent} from "../button/button.component";
 import {CommonModule} from "@angular/common";
 import {Button} from "primeng/button";
-import {Router} from "@angular/router";
+import {NavigationEnd, Router} from "@angular/router";
+import {filter} from "rxjs";
 
 @Component({
   selector: 'app-footer',
@@ -18,7 +19,7 @@ import {Router} from "@angular/router";
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.scss'
 })
-export class FooterComponent {
+export class FooterComponent implements OnInit {
   constructor() {
     this.currentRoute = this.router.url
   }
@@ -27,8 +28,10 @@ export class FooterComponent {
     switch (currentRoute) {
       case '/':
         return 'coffee-mix'
-      case 'coffee-mix':
-        return 'prepare-device'
+      case '/coffee-mix':
+        return 'devices'
+      case '/devices':
+        return 'name-weight-choice'
       default :
         return ""
     }
@@ -38,10 +41,12 @@ export class FooterComponent {
     switch (currentRoute) {
       case '/':
         return '/'
-      case 'coffee-mix':
+      case '/coffee-mix':
         return '/'
-      case 'prepare-device':
+      case '/devices':
         return 'coffee-mix'
+      case '/name-weight-choice':
+        return 'devices'
       default :
         return ""
     }
@@ -80,4 +85,12 @@ export class FooterComponent {
       }
     }
   ]
+
+  ngOnInit() {
+    this.router.events.pipe(filter((e): e is NavigationEnd => e instanceof NavigationEnd)).subscribe({
+      next: (event: NavigationEnd) => {
+        this.currentRoute = event.url;
+      }
+    })
+  }
 }

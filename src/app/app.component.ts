@@ -1,5 +1,5 @@
-import {Component, inject} from '@angular/core';
-import {RouterOutlet} from '@angular/router';
+import {Component, inject, OnInit} from '@angular/core';
+import {Router, RouterOutlet} from '@angular/router';
 import {FooterComponent} from "./_share/_components/footer/footer.component";
 import {CommonModule} from "@angular/common";
 import {FooterService} from "./_share/_services/footer.service";
@@ -12,8 +12,13 @@ import {Button} from "primeng/button";
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'CupRio';
+  private router = inject(Router)
   protected footerService = inject(FooterService)
+
+  ngOnInit() {
+    // this.router.navigate([''])
+  }
 
 }

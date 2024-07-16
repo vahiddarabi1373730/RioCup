@@ -1,8 +1,8 @@
 import {AfterViewInit, Component, inject, Input, OnInit} from '@angular/core';
-import {DescriptionComponent} from "../_share/_components/description/description.component";
-import {FormGeneratorComponent} from "../_share/_components/form-generator/form-generator.component";
-import {DynamicFormConfigInterface, selectedCoffeeInterface} from "../_share/_models/share.interface";
-import {SelectedCoffeeService} from "../_share/_services/selected-coffee.service";
+import {DescriptionComponent} from "../../_share/_components/description/description.component";
+import {FormGeneratorComponent} from "../../_share/_components/form-generator/form-generator.component";
+import {DynamicFormConfigInterface, selectedCoffeeInterface} from "../../_share/_models/share.interface";
+import {SelectedCoffeeService} from "../../_share/_services/selected-coffee.service";
 import {Observable} from "rxjs";
 import {FormGroup} from "@angular/forms";
 
@@ -17,6 +17,7 @@ import {FormGroup} from "@angular/forms";
   styleUrl: './coffee-mix.component.scss'
 })
 export class CoffeeMixComponent implements OnInit, AfterViewInit {
+  protected description = 'حداقل یک و حداکثر سه قهوه را برای شروع ترکیب دلخواه انتخاب کنید. برای بهترین ترکیب، بهتر است یک قهوه از نوع عربیکا و نوع دوم ربوستای اوگاندا را انتخاب کنید. ربوستا تلخی، غلظت، کرما و کافئین قهوه را افزایش می دهد و برای طعم و عطر بهتر از ترکیب یک عربیکا استفاده کنید.'
   private form!: FormGroup
   protected config: DynamicFormConfigInterface = {
     controls: {}
@@ -38,6 +39,5 @@ export class CoffeeMixComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    console.log(this.form)
   }
 }

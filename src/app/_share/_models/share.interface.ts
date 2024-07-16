@@ -30,7 +30,7 @@ export interface DynamicControlInterface<T = string> {
 
 export type CustomValidators = {}
 export type ValidatorKeys = keyof Omit<typeof Validators & CustomValidators, 'composeAsync' | 'compose' | 'prototype'>
-export type ControlType = 'input' | 'select' | 'slider' | 'group';
+export type ControlType = 'input' | 'select' | 'slider' | 'input-group' | 'group';
 export type DynamicControlsMap = {
   [T in DynamicControlInterface['controlType']]: Type<any>
 }
@@ -74,4 +74,23 @@ export type SeverityType = 'secondary' | 'primary' | 'success' | 'danger'
 export interface selectedCoffeeInterface {
   index: number
   coffee: CoffeeInterface
+}
+
+
+export interface DeviceInterface {
+  id: string,
+  iconName: string,
+  title: string
+  bitterness: ValueLabelInterface,
+  acidity: ValueLabelInterface,
+  caffeine: ValueLabelInterface,
+  smell: ValueLabelInterface,
+  class?: string
+}
+
+export interface PackInterface {
+  iconName: string,
+  title: string,
+  id: string,
+  class?: string
 }

@@ -1,6 +1,6 @@
 <ng-container *ngIf="coffees | async as coffee">
-  <app-description title="انتخاب قهوه"></app-description>
-  <div class="c-item tw-flex tw-flex-wrap tw-gap-x-4 tw-gap-y-4">
+  <app-description title="انتخاب قهوه" [description]="description"></app-description>
+  <div class="tw-flex tw-flex-wrap tw-gap-x-4 tw-gap-y-4">
     <ng-container *ngFor="let item of coffee,let i=index">
       <app-coffee-card (click)="selectCoffee(item,i)" [item]="item"></app-coffee-card>
     </ng-container>

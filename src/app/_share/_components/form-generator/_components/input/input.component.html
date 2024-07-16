@@ -1,1 +1,4 @@
-<p>input works!</p>
+<ng-container [formGroup]="form">
+  <input [type]="control.config.type" class="tw-text-center tw-w-full tw-h-9 tw-text-lg tw-text-ACACAC" pInputText
+         [formControlName]="control.controlKey"/>
+</ng-container>

@@ -17,9 +17,11 @@ module.exports = {
       '5D5D5D': '#5D5D5D',
       'E6E6E6': '#E6E6E6',
       'F2F2F2': '#F2F2F2',
+      'F7F7F7': '#F7F7F7',
       'F8F2E7 ': '#F8F2E7 ',
       'bg-slider': 'rgba(211, 172, 103, 0.30)',
-      'bg-card': 'rgba(211, 172, 103, 0.10)'
+      'bg-card': 'rgba(211, 172, 103, 0.10)',
+      'bg-device': 'rgba(211, 172, 103, 0.10)'
     },
     screens: {
       'sm': '360px',

@@ -8,7 +8,7 @@ export class BaseDirective {
   constructor() {
   }
 
-  protected control = inject(CONTROL_DATA)
+  public control = inject(CONTROL_DATA)
   protected parentFormGroup = inject(ControlContainer)
 
   get form() {
