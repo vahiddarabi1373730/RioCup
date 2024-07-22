@@ -14,7 +14,7 @@
   </div>
   <div class="tw-flex tw-justify-between tw-items-center md:tw-gap-x-4">
     <div class="sm:tw-hidden md:tw-block">
-      <span class="tw-text-5D5D5D tw-text-2xl tw-font-bold">{{ footer.price }}</span>
+      <span class="tw-text-5D5D5D tw-text-2xl tw-font-bold">{{ footer.price |comaSeparator }}</span>
       <span class="tw-text-ACACAC tw-text-sm tw-font-semibold">تومان</span>
     </div>
     <app-button *ngFor="let button of buttons" [button]="button"></app-button>

@@ -23,7 +23,7 @@ export class PreparerDeviceComponent {
 
   private selectedDevice: DeviceInterface | undefined;
 
-  protected selectDevice(device: DeviceInterface, devices: DeviceInterface[], index: number) {
+  protected selectDevice(device: DeviceInterface, devices: DeviceInterface[]) {
     devices.forEach(device => device.class = '')
     if (this.selectedDevice) {
       if (this.selectedDevice.id === device.id) {

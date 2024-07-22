@@ -5,6 +5,7 @@ import {SliderComponent} from "../slider/slider.component";
 import {PlaceHolderComponent} from "./place-holder/place-holder.component";
 import {Button} from "primeng/button";
 import {NgClass} from "@angular/common";
+import {PersianNumberPipe} from "../../_pipes/persian-number.pipe";
 
 @Component({
   selector: 'app-coffee-card',
@@ -14,7 +15,8 @@ import {NgClass} from "@angular/common";
     SliderComponent,
     PlaceHolderComponent,
     Button,
-    NgClass
+    NgClass,
+    PersianNumberPipe
   ],
   templateUrl: './coffee-card.component.html',
   styleUrl: './coffee-card.component.scss'

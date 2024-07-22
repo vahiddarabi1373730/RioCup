@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 @import "primeicons/primeicons.css";
+@import 'ngx-toastr/toastr';
+
 
 * {
   text-align: right;
@@ -12,7 +14,7 @@
 
 @font-face {
   font-family: 'BYekan';
-  src: url("/assets/_fonts/YekanBakh-Medium.eot") format("truetype");
+  src: url("/assets/_fonts/Yekan.woff") ;
 }
 
 * {

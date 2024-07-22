@@ -26,7 +26,6 @@ export class FormGeneratorComponent {
     this._config = config
     this.buildForm(config.controls)
     this.formReady.emit(this.form)
-    console.log(this.form)
 
   }
 

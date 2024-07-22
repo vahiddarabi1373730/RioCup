@@ -11,6 +11,7 @@ export interface SvgIcon {
 }
 
 export interface DynamicFormConfigInterface {
+  formClass?: string,
   controls: {
     [key: string]: DynamicControlInterface
   }
@@ -26,6 +27,7 @@ export interface DynamicControlInterface<T = string> {
   validators?: {
     [key in ValidatorKeys]?: unknown
   }
+  controlClass?: string
 }
 
 export type CustomValidators = {}
@@ -94,3 +96,13 @@ export interface PackInterface {
   id: string,
   class?: string
 }
+
+export type CurrentRoute = '/' | '/coffee-mix' | '/devices' | '/name-weight-choice'
+
+export interface AlertInterface {
+  title: string,
+  message: string,
+  type: AlertType
+}
+
+export type AlertType = 'success' | 'error' | 'warning' | 'info'

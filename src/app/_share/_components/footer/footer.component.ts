@@ -1,11 +1,12 @@
 import {Component, inject, Input, OnInit} from '@angular/core';
-import {ButtonInterface, FooterInterface} from "../../_models/share.interface";
+import {ButtonInterface, CurrentRoute, FooterInterface} from "../../_models/share.interface";
 import {SvgIconComponent} from "../svg-icon/svg-icon.component";
 import {ButtonComponent} from "../button/button.component";
 import {CommonModule} from "@angular/common";
 import {Button} from "primeng/button";
 import {NavigationEnd, Router} from "@angular/router";
 import {filter} from "rxjs";
+import {ComaSeparatorPipe} from "../../_pipes/coma-separator.pipe";
 
 @Component({
   selector: 'app-footer',
@@ -14,16 +15,13 @@ import {filter} from "rxjs";
     CommonModule,
     SvgIconComponent,
     ButtonComponent,
-    Button
+    Button,
+    ComaSeparatorPipe
   ],
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.scss'
 })
 export class FooterComponent implements OnInit {
-  constructor() {
-    this.currentRoute = this.router.url
-  }
-
   private nexRoute(currentRoute: string) {
     switch (currentRoute) {
       case '/':
@@ -52,7 +50,7 @@ export class FooterComponent implements OnInit {
     }
   }
 
-  private currentRoute!: string
+  private currentRoute!: CurrentRoute
   private router = inject(Router)
   @Input() footer!: FooterInterface
   protected buttons: ButtonInterface[] = [
@@ -68,12 +66,12 @@ export class FooterComponent implements OnInit {
       icon: "pi-arrow-right",
       iconPos: "right",
       operation: () => {
-        this.router.navigate([this.previousRoute(this.currentRoute)])
+        this.currentRoute === '/' ? console.log('first level') : this.router.navigate([this.previousRoute(this.currentRoute)])
       }
     },
     {
       hasText: true,
-      innerText: "مرحله بعد",
+      innerText: 'مرحله بعد',
       severity: "primary",
       hasInnerText: true,
       hasIcon: true,
@@ -81,7 +79,8 @@ export class FooterComponent implements OnInit {
       iconPos: "left",
       class: 'DDBE88 left',
       operation: () => {
-        this.router.navigate([this.nexRoute(this.currentRoute)])
+        this.currentRoute === '/name-weight-choice' ? console.log('final') : this.router.navigate([this.nexRoute(this.currentRoute)])
+
       }
     }
   ]
@@ -89,7 +88,8 @@ export class FooterComponent implements OnInit {
   ngOnInit() {
     this.router.events.pipe(filter((e): e is NavigationEnd => e instanceof NavigationEnd)).subscribe({
       next: (event: NavigationEnd) => {
-        this.currentRoute = event.url;
+        this.currentRoute = event.url as CurrentRoute;
+        this.buttons[1].innerText = this.currentRoute === '/name-weight-choice' ? 'نتیجه نهایی' : 'مرحله بعد'
       }
     })
   }

@@ -1,9 +1,13 @@
 <ng-container [formGroup]="form">
-  <p-inputGroup [formControlName]="control.controlKey">
-    <p-inputGroupAddon>
+  <p-inputGroup [formControlName]="control.controlKey" ngDefaultControl>
+    <p-inputGroupAddon
+      class="tw-border-solid tw-border-x tw-border-E6E6E6  tw-rounded-none tw-py-4 tw-px-6 tw-text-333 tw-text-lg tw-font-semibold tw-rounded-r-lg tw-cursor-pointer"
+      (click)="form.controls[control.controlKey].setValue('no')">
       <p>خیر</p>
     </p-inputGroupAddon>
-    <p-inputGroupAddon>
+    <p-inputGroupAddon
+      class="tw-border-solid tw-border-x tw-border-E6E6E6  tw-rounded-none tw-py-4 tw-px-6 tw-text-333 tw-text-lg tw-font-semibold tw-rounded-l-lg tw-bg-DDBE88 tw-cursor-pointer"
+      (click)="form.controls[control.controlKey].setValue('yes')">
       <p>بله</p>
     </p-inputGroupAddon>
   </p-inputGroup>

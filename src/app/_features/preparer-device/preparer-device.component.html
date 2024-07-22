@@ -1,8 +1,8 @@
 <ng-container *ngIf="preparerDevices$ | async as devices">
   <app-description title="با چی می خوای قهوه ت رو آماده کنی؟" [description]="description"></app-description>
   <div class="tw-flex tw-flex-col tw-gap-x-4 tw-gap-y-4 md:tw-flex-row md:tw-flex-wrap">
-    <ng-container *ngFor="let device of devices;let i=index">
-      <app-device (click)="selectDevice(device,devices,i)" [device]="device"></app-device>
+    <ng-container *ngFor="let device of devices">
+      <app-device (click)="selectDevice(device,devices)" [device]="device"></app-device>
     </ng-container>
   </div>
 </ng-container>
