@@ -1,6 +1,6 @@
 import {Component, EventEmitter, inject, Input, Output} from '@angular/core';
 import {DynamicControlInterface, DynamicFormConfigInterface} from "../../_models/share.interface";
-import {FormControl, FormGroup, ReactiveFormsModule} from "@angular/forms";
+import {FormControl, FormGroup, ReactiveFormsModule, ValidatorFn} from "@angular/forms";
 import {CommonModule} from "@angular/common";
 import {DynamicControlResolverService} from "./_share/dynamic-control-resolver.service";
 import {ControlInjectorPipe} from "./_share/contolr-injector.pipe";
@@ -24,7 +24,7 @@ export class FormGeneratorComponent {
   private _config!: DynamicFormConfigInterface
   @Input() set config(config: DynamicFormConfigInterface) {
     this._config = config
-    this.buildForm(config.controls)
+    this.buildForm(config.controls, config.validatorFn ? config.validatorFn : null)
     this.formReady.emit(this.form)
 
   }
@@ -33,8 +33,8 @@ export class FormGeneratorComponent {
     return this._config
   }
 
-  private buildForm(controls: DynamicFormConfigInterface['controls']): void {
-    this.form = new FormGroup({})
+  private buildForm(controls: DynamicFormConfigInterface['controls'], validatorFn: ValidatorFn | null): void {
+    this.form = new FormGroup({}, validatorFn)
     Object.keys(controls).forEach(controlKey => this.buildControls(controlKey, controls[controlKey], this.form))
   }
 

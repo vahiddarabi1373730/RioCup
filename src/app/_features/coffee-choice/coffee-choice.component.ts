@@ -8,6 +8,7 @@ import {coffees} from '../../../assets/fake-data/fake-data';
 import {FooterComponent} from "../../_share/_components/footer/footer.component";
 import {DescriptionComponent} from "../../_share/_components/description/description.component";
 import {SelectedCoffeeService} from "../../_share/_services/selected-coffee.service";
+import {AlertService} from "../../_share/_services/alert.service";
 
 @Component({
   selector: 'app-coffee-choice',
@@ -26,18 +27,26 @@ export class CoffeeChoiceComponent {
   protected description = 'حداقل یک و حداکثر سه قهوه را برای شروع ترکیب دلخواه انتخاب کنید. برای بهترین ترکیب، بهتر است یک قهوه از نوع عربیکا و نوع دوم ربوستای اوگاندا را انتخاب کنید. ربوستا تلخی، غلظت، کرما و کافئین قهوه را افزایش می دهد و برای طعم و عطر بهتر از ترکیب یک عربیکا استفاده کنید.'
   protected coffees: Observable<CoffeeInterface[]> = of(coffees)
   private selectedCoffeeService = inject(SelectedCoffeeService)
+  private alertService = inject(AlertService)
 
   protected selectCoffee(coffee: CoffeeInterface, index: number) {
     const selectedCoffees = this.selectedCoffeeService.selectedCoffee$.getValue()
     const findIndex = selectedCoffees.findIndex(c => c.index === index)
     if (findIndex === -1) {
-      coffee.class = 'selected'
+      if (selectedCoffees.length > 3) {
+        this.alertService.alert$.next(
+          {type: "error", title: "خطا در انتخاب قهوه", message: "حداکثر تعداد انتخاب قهوه 4 میباشد."}
+        )
+        return
+      }
       this.selectedCoffeeService.selectedCoffee$.next([...selectedCoffees, {coffee, index}])
+      coffee.class = 'selected'
     } else {
       coffee.class = ''
       selectedCoffees.splice(findIndex, 1)
       this.selectedCoffeeService.selectedCoffee$.next(selectedCoffees)
     }
   }
+
 
 }

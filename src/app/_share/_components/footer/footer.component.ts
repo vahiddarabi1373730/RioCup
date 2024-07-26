@@ -7,6 +7,7 @@ import {Button} from "primeng/button";
 import {NavigationEnd, Router} from "@angular/router";
 import {filter} from "rxjs";
 import {ComaSeparatorPipe} from "../../_pipes/coma-separator.pipe";
+import {FooterService} from "../../_services/footer.service";
 
 @Component({
   selector: 'app-footer',
@@ -52,6 +53,7 @@ export class FooterComponent implements OnInit {
 
   private currentRoute!: CurrentRoute
   private router = inject(Router)
+  private footerService = inject(FooterService)
   @Input() footer!: FooterInterface
   protected buttons: ButtonInterface[] = [
     {
@@ -64,8 +66,10 @@ export class FooterComponent implements OnInit {
       hasText: true,
       class: 'F2F2F2 right',
       icon: "pi-arrow-right",
+      key: "previous-level",
       iconPos: "right",
       operation: () => {
+        this.footerService.disabledButton$.next({disabled: false, key: "next-level"})
         this.currentRoute === '/' ? console.log('first level') : this.router.navigate([this.previousRoute(this.currentRoute)])
       }
     },
@@ -77,6 +81,7 @@ export class FooterComponent implements OnInit {
       hasIcon: true,
       iconName: "arrow-left",
       iconPos: "left",
+      key: "next-level",
       class: 'DDBE88 left',
       operation: () => {
         this.currentRoute === '/name-weight-choice' ? console.log('final') : this.router.navigate([this.nexRoute(this.currentRoute)])
@@ -92,5 +97,14 @@ export class FooterComponent implements OnInit {
         this.buttons[1].innerText = this.currentRoute === '/name-weight-choice' ? 'نتیجه نهایی' : 'مرحله بعد'
       }
     })
+    this.footerService.disabledButton$.subscribe(res => {
+      const button = this.buttons.find(button => button.key === res.key)
+      if (button && this.currentRoute === '/coffee-mix') {
+        button.disabled = res.disabled
+      } else if (button && this.currentRoute !== '/coffee-mix') {
+        button.disabled = false
+      }
+    })
+
   }
 }

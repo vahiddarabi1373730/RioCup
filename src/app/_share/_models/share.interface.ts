@@ -1,4 +1,4 @@
-import {Validators} from "@angular/forms";
+import {ValidatorFn, Validators} from "@angular/forms";
 import {Type} from "@angular/core";
 
 export interface ValueLabelInterface {
@@ -6,18 +6,16 @@ export interface ValueLabelInterface {
   label: string
 }
 
-export interface SvgIcon {
-  name: string
-}
-
 export interface DynamicFormConfigInterface {
+  validatorFn?: ValidatorFn,
+  textError?: string,
   formClass?: string,
   controls: {
     [key: string]: DynamicControlInterface
   }
 }
 
-export interface DynamicControlInterface<T = string> {
+export interface DynamicControlInterface<T = any> {
   controlType: ControlType,
   type?: string
   label: string,
@@ -27,7 +25,9 @@ export interface DynamicControlInterface<T = string> {
   validators?: {
     [key in ValidatorKeys]?: unknown
   }
-  controlClass?: string
+  controlClass?: string,
+  placeholder?: string,
+  inputGroupConfig?: InputGroupType
 }
 
 export type CustomValidators = {}
@@ -37,6 +37,7 @@ export type DynamicControlsMap = {
   [T in DynamicControlInterface['controlType']]: Type<any>
 }
 
+type InputGroupType = 'no' | 'yes';
 
 export interface CoffeeInterface {
   nameFlag: string,
@@ -67,7 +68,9 @@ export interface ButtonInterface {
   icon?: string,
   iconPos?: any,
   hasText?: boolean,
-  class: string
+  class: string,
+  disabled?: boolean,
+  key?: string,
 
 }
 
@@ -106,3 +109,14 @@ export interface AlertInterface {
 }
 
 export type AlertType = 'success' | 'error' | 'warning' | 'info'
+
+export interface DisabledButtonInterface {
+  disabled?: boolean,
+  key?: string
+}
+
+
+export interface ChangeConfigPropertyInterface {
+  newValue: any,
+  propertyName: keyof DynamicControlInterface,
+}

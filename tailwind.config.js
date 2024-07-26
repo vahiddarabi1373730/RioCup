@@ -21,7 +21,8 @@ module.exports = {
       'F8F2E7 ': '#F8F2E7 ',
       'bg-slider': 'rgba(211, 172, 103, 0.30)',
       'bg-card': 'rgba(211, 172, 103, 0.10)',
-      'bg-device': 'rgba(211, 172, 103, 0.10)'
+      'bg-device': 'rgba(211, 172, 103, 0.10)',
+      'dd0031': '#dd0031'
     },
     screens: {
       'sm': '360px',

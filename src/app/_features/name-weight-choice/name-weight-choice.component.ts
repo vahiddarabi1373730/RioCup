@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {AfterViewInit, Component, inject} from '@angular/core';
 import {DescriptionComponent} from "../../_share/_components/description/description.component";
 import {FormGeneratorComponent} from "../../_share/_components/form-generator/form-generator.component";
 import {of} from "rxjs";
@@ -7,6 +7,10 @@ import {CommonModule} from "@angular/common";
 import {PackComponent} from "../../_share/_components/pack/pack.component";
 import {DynamicFormConfigInterface, PackInterface} from "../../_share/_models/share.interface";
 import {FormGroup} from "@angular/forms";
+import {
+  ChangeConfigPropertyService
+} from "../../_share/_components/form-generator/_share/change-config-property.service";
+import {NameWeightChoiceFormInterface} from "./_models/interface";
 
 @Component({
   selector: 'app-name-weight-choice',
@@ -20,8 +24,9 @@ import {FormGroup} from "@angular/forms";
   templateUrl: './name-weight-choice.component.html',
   styleUrl: './name-weight-choice.component.scss'
 })
-export class NameWeightChoiceComponent {
-  private form!: FormGroup
+export class NameWeightChoiceComponent implements AfterViewInit {
+  private changeConfigPropertyService = inject(ChangeConfigPropertyService)
+  private form!: FormGroup<NameWeightChoiceFormInterface>
   private selectedPack: PackInterface | undefined;
   protected description = 'لطفان وزن بسته‌بندی مد نظر خود را انتخاب و نوع آسیاب قهوه را هم انتخاب کنید و برای ترکیب خود یک نام بگذارید'
   protected packs$ = of(packs)
@@ -31,7 +36,8 @@ export class NameWeightChoiceComponent {
       'name': {
         controlType: "input",
         label: 'نامی برای ترکیب خود بگذارید:',
-        value: "ترکی",
+        placeholder: "ترکی",
+        value: null,
         controlClass: "md:tw-flex-row md:tw-w-1/2 md:tw-justify-between md:tw-items-center"
       },
       'isMill': {
@@ -57,12 +63,18 @@ export class NameWeightChoiceComponent {
       pack.class = 'selected'
       this.selectedPack = pack
     }
-    console.log(pack)
   }
 
   protected formReady(form: FormGroup) {
     this.form = form
+  }
+
+  ngAfterViewInit() {
     this.form.valueChanges.subscribe(res => {
+      this.changeConfigPropertyService.changeConfigProperty$.next({
+        propertyName: 'inputGroupConfig',
+        newValue: res.isMill,
+      })
     })
   }
 
